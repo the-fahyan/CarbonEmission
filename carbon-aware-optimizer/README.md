@@ -186,9 +186,10 @@ Config via environment variables / `.env` (see `.env.example`). The SQLite file 
 (`backend/data/carbon_optimizer.db`). **Do not use `--reload` with the worker if you edit files mid-demo** (a reload is a restart).
 
 ## Hosting on Render's free tier
-This repository includes a Render Blueprint (`render.yaml`) for the frontend and API. To deploy, push the repository to
-GitHub, sign in to [Render](https://render.com), choose **New → Blueprint**, and connect this repository. Render builds
-both services and assigns free `*.onrender.com` URLs; the UI and API hostnames are wired together automatically.
+This project includes a Render Blueprint at `carbon-aware-optimizer/render.yaml` for the frontend and API. To deploy,
+sign in to [Render](https://render.com), choose **New → Blueprint**, connect this repository, and set the Blueprint file
+to that path. Render builds both services and assigns free `*.onrender.com` URLs; the UI and API hostnames are wired
+together automatically.
 
 The free API service can spin down while idle and take a short time to wake up. Its SQLite database is stored on
 ephemeral storage, so saved jobs/settings can be lost when the service restarts or is redeployed. The app has no
