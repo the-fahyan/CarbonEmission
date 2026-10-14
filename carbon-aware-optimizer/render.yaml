@@ -14,12 +14,13 @@ services:
         value: sqlite:////tmp/carbon_optimizer.db
       - key: FRONTEND_ORIGINS
         fromService:
-          type: static
+          type: web
           name: carbon-aware-optimizer-ui
           property: host
 
-  - type: static
+  - type: web
     name: carbon-aware-optimizer-ui
+    runtime: static
     rootDir: carbon-aware-optimizer/frontend
     buildCommand: npm ci && npm run build
     staticPublishPath: dist
