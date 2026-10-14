@@ -13,10 +13,7 @@ services:
       - key: DATABASE_URL
         value: sqlite:////tmp/carbon_optimizer.db
       - key: FRONTEND_ORIGINS
-        fromService:
-          type: web
-          name: carbon-aware-optimizer-ui
-          property: host
+        value: https://carbon-aware-optimizer-ui.onrender.com
 
   - type: web
     name: carbon-aware-optimizer-ui
@@ -26,7 +23,4 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_BASE_URL
-        fromService:
-          type: web
-          name: carbon-aware-optimizer-api
-          property: host
+        value: https://carbon-aware-optimizer-api.onrender.com
